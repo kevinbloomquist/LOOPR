@@ -1,0 +1,22 @@
+<% include ./partials/header.ejs %>
+
+<% if (message) {%>
+	<div class = "alert alert-danger"><%= message%></div> 
+	<%}%>
+
+<h2>LOGIN</h2>
+
+<form method = "post" action = "/login">
+<div class = "form-group">
+<label for = "email">Email</label>
+<input class = "form-control" placeholder = "me@looper.com" type = "text" name = "email" id = "email">
+</div>
+
+<div class = "form-group">
+<label for = "email">Password</label>
+<input class = "form-control" placeholder = "secrets" type = "password" name = "password" id = "password">
+</div>
+
+<input class = "btn btn-default" type = "submit">
+</form>
+<%include ./partials/footer.ejs%>
