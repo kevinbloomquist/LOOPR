@@ -1,0 +1,29 @@
+{
+  "name": "LOOPR",
+  "version": "1.0.0",
+  "description": "#### Overview",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevinbloomquist/LOOPR.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kevinbloomquist/LOOPR/issues"
+  },
+  "homepage": "https://github.com/kevinbloomquist/LOOPR#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.15.2",
+    "ejs": "^2.5.5",
+    "express": "^4.14.0",
+    "express-ejs-layouts": "^2.2.0",
+    "mongoose": "^4.7.2",
+    "passport": "^0.3.2"
+  }
+}
