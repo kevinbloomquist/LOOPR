@@ -30,9 +30,30 @@ module.exports = function(passport) {
 		} else {
 	// create user with this email
 	var newUser = new User();
-	/******************PAUSED HERE need to sort out user schema first
-		})
-	})
-	}))
-}
-}
+	newUser.local.email = email;
+	newUser.local.password = newuser.encrypt(password);
+	newUser.save(function(err){
+		if (err) throw err;
+		return callback(null,newUser);
+
+		});
+	}
+
+});
+	passport.use('local-login', new LocalStrategy({
+		usernameField:'email',
+		passwordField:'password',
+		passReqToCallback: true	
+	}, function(req,email,password,callback){
+		user.findOne({'local.email':email}, function(err,user) {
+			if(err){return callback(null,false,req.flash ('loginMessage','No user found with that email'));
+	}
+		if(!user) {
+			return callback(null,false,req.flash ('loginMessage','Oops! Wrong password'));
+	}
+	return callback(null,user);
+		});
+	}));
+	}));
+
+};
