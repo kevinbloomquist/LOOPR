@@ -1,3 +1,4 @@
+console.log("app.js is linked");
 var express      = require('express');
 var app          = express();
 var mongoose     = require('mongoose');

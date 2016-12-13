@@ -1,3 +1,4 @@
+console.log("models/user.js is included");
 var mongoose = require ('mongoose');
 var bcrypt = require('bcrypt-nodejs');
 
