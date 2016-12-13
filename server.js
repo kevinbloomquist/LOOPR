@@ -30,34 +30,34 @@ var passport = require("passport");
 // Endpoints:
 // HTML Endpoints:
 
-/*Taken from passport routes.js*/
-function authenticatedUser(req,res,next) {
-	// if authenticated, continue
-	if(req.isAuthenticated()) return next();
-	// if not,go home dude
-	res.redirect('/');
-}
-
-// from passport - adjust for loopr to 61
-
-router.route('/')
-  .get(staticsController.home);
-
-router.route('/signup')
-  .get(usersController.getSignup)
-  .post(usersController.postSignup);
-
-router.route('/login')
-  .get(usersController.getLogin)
-  .post(usersController.postLogin);
-
-router.route("/logout")
-  .get(usersController.getLogout);
+/*Taken from passport routes.js to 61 "end adjust for loopr"*/
+// function authenticatedUser(req,res,next) {
+// 	// if authenticated, continue
+// 	if(req.isAuthenticated()) return next();
+// 	// if not,go home dude
+// 	res.redirect('/');
+// }
 
 
-router.route('/secret')
-.get(authenticatedUser,usersController.secret);
-module.exports = router;
+
+// router.route('/')
+//   .get(staticsController.home);
+
+// router.route('/signup')
+//   .get(usersController.getSignup)
+//   .post(usersController.postSignup);
+
+// router.route('/login')
+//   .get(usersController.getLogin)
+//   .post(usersController.postLogin);
+
+// router.route("/logout")
+//   .get(usersController.getLogout);
+
+
+// router.route('/secret')
+// .get(authenticatedUser,usersController.secret);
+// module.exports = router;
 // end adjust for loopr
 
 // JSON API Endpoints:
