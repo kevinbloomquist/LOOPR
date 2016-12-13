@@ -9,7 +9,7 @@ var app = express();
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended:true}));
 // Serve static files from /public
-app.use(expres.static(_dirname + '/public'));
+app.use(expres.static(__dirname + '/public'));
 
 /*********
 * ROUTES *
