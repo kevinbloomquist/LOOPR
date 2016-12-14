@@ -2,12 +2,13 @@
 console.log("loop.js is included");
 
 var mongoose = require ('mongoose');
+var moment	 = require('moment');
 
 var Loop = mongoose.Schema({
-date: "Find correct format type",
-time: "find correct format",
+date: Date,
+time: "maybe something like date.hh:date.mm",
 message: String.
-fuseDate: "format like above",
+fuseDate: Date,
 fuseTime:"format like above",
 fuseLat: "format",
 fuseLong: "forma?"
