@@ -7,11 +7,11 @@ var moment	 = require('moment');
 var Loop = mongoose.Schema({
 date: Date,
 time: String,//"maybe something like date.hh:date.mm research moment",
-message: String.
+message: String,
 fuseDate: Date,
 fuseTime:String,//"format like above",
-fuseLat: "format",
-fuseLong: "forma?"
+fuseLat: Number,
+fuseLong: Number
 });
 
 module.exports = mongoose.model('Loop',Loop);

@@ -1,6 +1,7 @@
 console.log("users.js is included");
 
 var passport = require("passport");
+var db = require("../models");
 
 
 // GET /signup
@@ -15,6 +16,7 @@ function postSignup(request,response,next) {
 		failureRedirect: '/signup',
 		failureFlash: true
 	});
+
 	return signupStrategy(request,response,next);
 }
 
@@ -25,6 +27,7 @@ function getLogin(request,response) {
 
 // POST /login
 function postLogin(request,response,next){
+	console.log("logged in as a user");
 	var loginStrategy = passport.authenticate('local-login',{
 		successRedirect: '/',
 		failureRedirect: '/login',
@@ -47,6 +50,29 @@ res.render('secret.ejs',{message: request.flash('secretMessage')});
 }else response.redirect('/');
 
 }
+// GET /present
+function getTriggeredLoops(request,response){
+	response.render('present.ejs');
+	console.log("getTriggeredLoops hit!!!");
+}
+// GET /future
+function getFutureLoops (request,response){
+	response.render('createLoop.ejs',{message: request.flash("I don't know what this does yet")});
+	console.log("getLoops hit!!");
+}
+
+
+// POST /future
+function postFutureLoop(request,response){
+	db.Loop.create(request.body,function(err,loop){
+		console.log("loop created");
+		response.json(loop);
+
+	});
+	// response.render('createLoop.ejs');
+	console.log("createLoop hit!!!");
+}
+
 
 
 module.exports = {
@@ -55,6 +81,9 @@ module.exports = {
 	getSignup: getSignup,
 	postSignup: postSignup,
 	getLogout: getLogout,
-	secret: secret
+	secret: secret,
+	getFutureLoops: getFutureLoops,
+	postFutureLoop: postFutureLoop,
+	getTriggeredLoops: getTriggeredLoops
 
 };

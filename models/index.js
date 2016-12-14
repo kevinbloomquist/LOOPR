@@ -7,4 +7,4 @@ mongoose.connect("mongodb://localhost/loopr");
 
 module.exports.User = require('./user.js');
 
-// module.exports.Loop = require('./loop.js');
+module.exports.Loop = require('./loop.js');

@@ -6,7 +6,9 @@ var User = mongoose.Schema({
 	local: {
 		email      :String,
 		password   :String,
-		// loops:[loopSchema] 
+		//userLat	   :String,//change to proper location data
+		//userLong   :String,//change to proper location data
+		//loops:[loopSchema] 
 	}
 });
 

@@ -30,6 +30,16 @@ router.route('/login')
 router.route("/logout")
 .get(usersController.getLogout);
 
+router.route("/future")
+.get(usersController.getFutureLoops)
+.post(usersController.postFutureLoop) ;//*controller function not yet built
+// .put(usersController.editFutureLoop) * will require a find/ change/ return on submit of some kind
+// .delete(usersController.deleteFutureLoop); *controller function not yet built
+
+router.route("/present")
+.get(usersController.getTriggeredLoops);
+
+
 router.route('/secret')
 // when /secret gets hit run controller
 .get(authenticatedUser,usersController.secret);
