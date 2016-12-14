@@ -2,11 +2,11 @@ console.log("models/user.js is included");
 var mongoose = require ('mongoose');
 var bcrypt = require('bcrypt-nodejs');
 
-var user = mongoose.Schema({
+var User = mongoose.Schema({
 	local: {
 		email      :String,
 		password   :String,
-		loops:[loopSchema] 
+		// loops:[loopSchema] 
 	}
 });
 

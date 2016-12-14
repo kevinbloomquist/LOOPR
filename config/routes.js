@@ -1,9 +1,10 @@
+console.log("routes.js is included");
 var express = require('express');
 var router = express.Router();
 // Parses information from POST
 var bodyParser = require('body-parser');
 // Used to manipulate POST methods
-var methodOverride = require('method-override');
+// var methodOverride = require('method-override');
 var passport = require("passport");
 var usersController = require('../controllers/users');
 var staticsController = require('../controllers/statics');
@@ -11,7 +12,7 @@ var staticsController = require('../controllers/statics');
 function authenticatedUser(req,res,next) {
 	// if Auth
 	if(req.isAuthenticated()) return next();
-	// if not, go home dude
+	// if not, beat it nerd
 	res.redirect('/');
 }
 
@@ -28,5 +29,9 @@ router.route('/login')
 
 router.route("/logout")
 .get(usersController.getLogout);
+
+router.route('/secret')
+// when /secret gets hit run controller
+.get(authenticatedUser,usersController.secret);
 
 module.exports = router;

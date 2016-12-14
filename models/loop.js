@@ -1,5 +1,5 @@
 // UNFINISHED!!!!! see lines 7-13
-
+console.log("loop.js is included");
 
 var mongoose = require ('mongoose');
 

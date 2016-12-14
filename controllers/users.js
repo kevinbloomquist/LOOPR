@@ -1,3 +1,5 @@
+console.log("users.js is included");
+
 var passport = require("passport");
 
 
@@ -23,13 +25,13 @@ function getLogin(request,response) {
 
 // POST /login
 function postLogin(request,response){
-	var loginStrategy = passport.authenticate('local-login',{
+	var LoginStrategy = passport.authenticate('local-login',{
 		successRedirect: '/',
 		failureRedirect: '/login',
 		failureFlash: true
 
 	});
-return loginStrategy(request,reponse);
+return loginStrategy(request,response);
 }
 
 // GET /logout
@@ -38,12 +40,21 @@ function getLogout(request,response) {
 	response.redirect('/');
 }
 
-/*omitted secret from passport.js*/
+// Restricted page change to main or create for loopr.
+function secret(request, response){
+	if(authenticatedUser){
+res.render('secret.ejs',{message: request.flash('secretMessage')});
+}else response.redirect('/');
+
+}
+
 
 module.exports = {
 	getLogin: getLogin,
 	postLogin: postLogin,
 	getSignup: getSignup,
 	postSignup: postSignup,
+	getLogout: getLogout,
+	secret: secret
 
 };

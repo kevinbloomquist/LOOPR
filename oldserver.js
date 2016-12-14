@@ -1,3 +1,5 @@
+console.log("server.js is active");
+
 // Requirements:
 // models
 var db = require("./models");
@@ -9,18 +11,20 @@ var app = express();
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended:true}));
 // Serve static files from /public
-app.use(expres.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public'));
+
 // Used to manipulate POST methods
-var methodOverride = require('method-override');
+// var methodOverride = require('method-override');
+
 // So we can use passport
 var passport = require("passport");
 
 /*use if rouste are split out into their own folder*/
-// var router = express.Router();
+var router = express.Router();
 
 // use if controllers are split out into their own folder
-// var usersController = require('../controllers/users');
-// var staticsController = require('../controllers/statics');
+var usersController = require('./controllers/users');
+var staticsController = require('./controllers/statics');
 
 
 /*********

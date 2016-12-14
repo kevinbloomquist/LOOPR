@@ -1,12 +1,12 @@
 console.log("passport.js is included!");
 var LocalStrategy = require('passport-local').Strategy;
-var User = require('..models/user');
+var User = require('../models/user');
 
 
 // passport here is referring to var passport in app.js
 module.exports = function(passport) {
 
-	passport.serizeUser(function(user, callback){
+	passport.serializeUser(function(user, callback){
 		callback(null,user.id);
 	});
 
@@ -20,7 +20,7 @@ module.exports = function(passport) {
 	// part of the password library...it's always looking for these
 	usernameFiels: 'email',
 	passwordField: 'password',
-	rassReqToCallback: true
+	passReqToCallback: true
 }, function (req,email,password,callback) {
 	// find a user with this email
 	User.findOne({'local.email':email}, function(err,user){
@@ -36,7 +36,6 @@ module.exports = function(passport) {
 	newUser.save(function(err){
 		if (err) throw err;
 		return callback(null,newUser);
-
 		});
 	}
 
@@ -51,6 +50,8 @@ module.exports = function(passport) {
 	}
 		if(!user) {
 			return callback(null,false,req.flash ('loginMessage','Oops! Wrong password'));
+	}	if(!user.validPassword(password)){
+			return allback (null,false,rq.flash('loginMessage','Oops! Wrong password'));
 	}
 	return callback(null,user);
 		});
