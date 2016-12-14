@@ -11,7 +11,6 @@ var session      = require('express-session');
 var moment		 = require('moment');
 var db = require("./models");
 
-require('./config/passport')(passport);
 
 
 // used in two places, here and models.index make sure connection is coverd by db =require above
@@ -32,6 +31,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
+require('./config/passport')(passport);
 app.use(function(req,res,next){
 	res.locals.currentUser = req.user;
 	next();

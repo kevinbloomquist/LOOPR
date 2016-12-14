@@ -9,13 +9,13 @@ function getSignup(request,response) {
 }
 
 // POST /signup
-function postSignup(request,response) {
+function postSignup(request,response,next) {
 	var signupStrategy = passport.authenticate('local-signup',{
 		successRedirect: '/',
 		failureRedirect: '/signup',
 		failureFlash: true
 	});
-	return signupStrategy(request,response);
+	return signupStrategy(request,response,next);
 }
 
 // GET /login
@@ -24,14 +24,14 @@ function getLogin(request,response) {
 }
 
 // POST /login
-function postLogin(request,response){
-	var LoginStrategy = passport.authenticate('local-login',{
+function postLogin(request,response,next){
+	var loginStrategy = passport.authenticate('local-login',{
 		successRedirect: '/',
 		failureRedirect: '/login',
 		failureFlash: true
 
 	});
-return loginStrategy(request,response);
+return loginStrategy(request,response,next);
 }
 
 // GET /logout

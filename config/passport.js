@@ -9,12 +9,14 @@ module.exports = function(passport) {
 	passport.serializeUser(function(user, callback){
 		callback(null,user.id);
 	});
+	console.log("serialize loaded");
 
 	passport.deserializeUser(function(id,callback){
 		UserfindById(id, function(err,user){
 			callback(err,user);
 		});
 	});
+	console.log("deserialize loaded");
 
 	passport.use('local-signup', new LocalStrategy({
 	// part of the password library...it's always looking for these
@@ -40,12 +42,14 @@ module.exports = function(passport) {
 	}
 
 });
+	}));
+	console.log("local-signup block");
 	passport.use('local-login', new LocalStrategy({
 		usernameField:'email',
 		passwordField:'password',
 		passReqToCallback: true	
 	}, function(req,email,password,callback){
-		user.findOne({'local.email':email}, function(err,user) {
+		User.findOne({'local.email':email}, function(err,user) {
 			if(err){return callback(null,false,req.flash ('loginMessage','No user found with that email'));
 	}
 		if(!user) {
@@ -56,6 +60,6 @@ module.exports = function(passport) {
 	return callback(null,user);
 		});
 	}));
-	}));
+	console.log("local-login block");
 
 };
