@@ -6,7 +6,7 @@ var moment	 = require('moment');
 
 var Loop = mongoose.Schema({
 date: Date,
-time: "maybe something like date.hh:date.mm",
+time: "maybe something like date.hh:date.mm research moment",
 message: String.
 fuseDate: Date,
 fuseTime:"format like above",
