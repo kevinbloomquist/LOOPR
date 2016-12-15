@@ -12,7 +12,7 @@ module.exports = function(passport) {
 	console.log("serialize loaded");
 
 	passport.deserializeUser(function(id,callback){
-		UserfindById(id, function(err,user){
+		User.findById(id, function(err,user){
 			callback(err,user);
 		});
 	});
@@ -20,7 +20,7 @@ module.exports = function(passport) {
 
 	passport.use('local-signup', new LocalStrategy({
 	// part of the password library...it's always looking for these
-	usernameFiels: 'email',
+	usernameField: 'email',
 	passwordField: 'password',
 	passReqToCallback: true
 }, function (req,email,password,callback) {
@@ -34,7 +34,7 @@ module.exports = function(passport) {
 	// create user with this email
 	var newUser = new User();
 	newUser.local.email = email;
-	newUser.local.password = newuser.encrypt(password);
+	newUser.local.password = newUser.encrypt(password);
 	newUser.save(function(err){
 		if (err) throw err;
 		return callback(null,newUser);

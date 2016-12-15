@@ -22,6 +22,7 @@ function postSignup(request,response,next) {
 
 // GET /login
 function getLogin(request,response) {
+	console.log(request.session);
 	response.render('login.ejs',{message: request.flash('loginMessage')});
 }
 
@@ -66,9 +67,14 @@ function getFutureLoops (request,response){
 function postFutureLoop(request,response){
 	db.Loop.create(request.body,function(err,loop){
 		console.log("loop created");
+		console.log(request.user);
+		// db.users.find(/*current user id*/);
 		response.json(loop);
 
 	});
+// still need to build:
+// PUT /future/
+// DELETE /future/
 	// response.render('createLoop.ejs');
 	console.log("createLoop hit!!!");
 }
@@ -82,7 +88,7 @@ module.exports = {
 	postSignup: postSignup,
 	getLogout: getLogout,
 	secret: secret,
-	getFutureLoops: getFutureLoops,
+	getFutureLoops: getFutureLoops, //note plurality
 	postFutureLoop: postFutureLoop,
 	getTriggeredLoops: getTriggeredLoops
 
