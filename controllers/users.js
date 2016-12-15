@@ -54,8 +54,9 @@ res.render('createLoop.ejs',{message: request.flash('secretMessage')});
 // GET /present
 function getTriggeredLoops(request,response){
 	response.render('present.ejs');
-	response.json(db.Loop.find());//working here to get a response (list of loops)
-
+	var loopList = db.Loop.find();//working here to get a response (list of loops)
+	console.log(request.user);
+	response.json();
 	console.log("getTriggeredLoops hit!!!");
 }
 // GET /future
