@@ -22,7 +22,7 @@ function postSignup(request,response,next) {
 
 // GET /login
 function getLogin(request,response) {
-	console.log(request.session);
+	console.log(request.session);//only here for easy retrieval
 	response.render('login.ejs',{message: request.flash('loginMessage')});
 }
 
@@ -47,13 +47,15 @@ function getLogout(request,response) {
 // Restricted page change to main or create for loopr.
 function secret(request, response){
 	if(authenticatedUser){
-res.render('secret.ejs',{message: request.flash('secretMessage')});
+res.render('createLoop.ejs',{message: request.flash('secretMessage')});
 }else response.redirect('/');
 
 }
 // GET /present
 function getTriggeredLoops(request,response){
 	response.render('present.ejs');
+	response.json(db.Loop.find());//working here to get a response (list of loops)
+
 	console.log("getTriggeredLoops hit!!!");
 }
 // GET /future
@@ -68,7 +70,8 @@ function postFutureLoop(request,response){
 	db.Loop.create(request.body,function(err,loop){
 		console.log("loop created");
 		console.log(request.user);
-		// db.users.find(/*current user id*/);
+		db.users.find('5851e3fd688f52ae004d1070');//experimental
+		console.log(db.users.session.passport.find('5851e3fd688f52ae004d1070'));//experimental
 		response.json(loop);
 
 	});
