@@ -15,6 +15,16 @@ var db = require("./models");
 
 // used in two places, here and models.index make sure connection is coverd by db =require above
 // mongoose.connect('mongodb://localhost/loopr');
+app.get('/api', function api_index (req, res){
+  res.json({
+    message: "Welcome to LOOPR!",
+    documentation_url: "https://github.com/kevinbloomquist/LOOPR",
+    base_url: "HEROKU LINK HERE!!!!",
+    endpoints: [
+      {method: "GET", path: "/api", description: "Describes available endpoints"}
+    ]
+  });
+});
 
 app.use(morgan('dev')); 
 app.use(cookieParser());

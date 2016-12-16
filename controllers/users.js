@@ -46,23 +46,24 @@ function getLogout(request,response) {
 
 // Restricted page change to main or create for loopr.
 function secret(request, response){
+	console.log("secret hitt!!");
 	if(authenticatedUser){
 res.render('createLoop.ejs',{message: request.flash('secretMessage')});
 }else response.redirect('/');
 
 }
-// GET /present
+// GET /
 function getTriggeredLoops(request,response){
 	response.render('present.ejs');
 	var loopList = db.Loop.find();//working here to get a response (list of loops)
-	console.log(request.user);
+	console.log(request.user);//this shows current user throws error if not logged in
 	response.json();
 	console.log("getTriggeredLoops hit!!!");
 }
 // GET /future
 function getFutureLoops (request,response){
 	response.render('createLoop.ejs',{message: request.flash("I don't know what this does yet")});
-	console.log("getLoops hit!!");
+	console.log("getFutureLoops hit!!");
 }
 
 
@@ -71,16 +72,15 @@ function postFutureLoop(request,response){
 	db.Loop.create(request.body,function(err,loop){
 		console.log("loop created");
 		console.log(request.user);
-		db.users.find('5851e3fd688f52ae004d1070');//experimental
-		console.log(db.users.session.passport.find('5851e3fd688f52ae004d1070'));//experimental
-		response.json(loop);
+		
 
 	});
 // still need to build:
 // PUT /future/
 // DELETE /future/
+// DELETE /
 	// response.render('createLoop.ejs');
-	console.log("createLoop hit!!!");
+	console.log("postFutureLoop hit!!!");
 }
 
 

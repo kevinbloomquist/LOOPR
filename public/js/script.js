@@ -18,12 +18,12 @@ $(document).ready(function(){
 "fuseLong": fuseLong
 };
 });
-	$.post('/future',loopIn,function(){
-		console.log("hit .post loopIn");
-	event.preventDefault();
-	console.log(loopIn);
-	});
-});
+// 	$.post('/',loopIn,function(){
+// 		console.log("hit .post loopIn");
+// 	event.preventDefault();
+// 	console.log(loopIn);
+// 	});
+// });
 // start render JSON loops here (convert to LOOPR)
 $(document).ready(function() {
   console.log('app.js loaded!');
@@ -41,19 +41,19 @@ console.log(loopsList);
 });
 
 //a way to see a new loop when created ()
-// $('.createPAge form').submit(function(event){
-//   event.preventDefault();
-//   var newLoop = $(this).serialize();
-//   // working here soo close (inspect!!!)
-//   $.post('/',newLoop, function(res){
-//     console.log(res);
+$('.loops form').submit(function(event){
+  event.preventDefault();
+  var newLoop = $(this).serialize();
+  // working here soo close (inspect!!!)
+  $.post('/',newLoop, function(res){
+    console.log(res);
   
 
-//     renderLoop(res);
-//     console.log(albumIn);
-//   });
+    renderLoop(res);
+    console.log(newLoop);
+  });
 
-// });
+});
 
 
 
@@ -65,12 +65,12 @@ function renderLoop(loop) {
 
 
   var loopHtml =
-  "        <!-- one album -->" +
+  "        <!-- one loop -->" +
   "        <div class='row album' data-album-id='" + loop._id + "'>" +
   "          <div class='col-md-10 col-md-offset-1'>" +
   "            <div class='panel panel-default'>" +
   "              <div class='panel-body'>" +
-  "              <!-- begin album internal row -->" +
+  "              <!-- begin loop internal row -->" +
   "                <div class='row'>" +
   "                  <div class='col-md-3 col-xs-12 thumbnail album-art'>" +
   "                     <img src='" + "http://placehold.it/400x400'" +  " alt='album image'>" +
@@ -92,7 +92,7 @@ function renderLoop(loop) {
   "                    </ul>" +
   "                  </div>" +
   "                </div>" +
-  "                <!-- end of album internal row -->" +
+  "                <!-- end of loop internal row -->" +
 
   "              </div>" + // end of panel-body
 
@@ -101,7 +101,7 @@ function renderLoop(loop) {
 
   "            </div>" +
   "          </div>" +
-  "          <!-- end one album -->";
+  "          <!-- end one loop -->";
 
   // render to the page with jQuery
 $('.loops').append(loopHtml);
