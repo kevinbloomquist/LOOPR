@@ -1,3 +1,4 @@
+<!-- edit header ejs to toggle to brand only after login -->
 <% include ./partials/header.ejs %>
  <%include createLoop.ejs%>
 <p>PRESENT page (html for loop with render function (ie tunely) for all triggered loops)
@@ -7,26 +8,24 @@ for loop through...
 render and append.<p>
 
 
+<!-- eventually sort loops to display triggered only -->
 
 <%loops.forEach(function(loop) {%>
-  
-
-
-//a way to see a new loop when created
 
  
 
 
  
          <!-- one loop -->
-          <div class='row loop' data-loop-id='" + loop._id + "'>
+         <!-- figure out how to get the id to become the loop.id -->
+          <div class='row loop' id=<%loop._id%>>
             <div class='col-md-10 col-md-offset-1'>
               <div class='panel panel-default'>
                 <div class='panel-body'>
                 <!-- begin loop internal row -->
-                  <div class='row'>" 
+                  <div class='row'>
                     <div class='col-md-3 col-xs-12 thumbnail loop-art'> 
-                       <img src='" + "http://placehold.it/400x400'  alt='album image'>
+                       <img src='" + "http://placehold.it/400x400'  alt='loop image'>
                     </div>
                     <div class='col-md-9 col-xs-12'>
                       <ul class='list-group'>
@@ -35,12 +34,12 @@ render and append.<p>
                           <span class='album-name'> <%=loop.date%> </span>
                         </li>
                         <li class='list-group-item'>
-                          <h4 class='inline-header'>Loop message:</h4> 
-                          <span class='artist-name'> <%= loop.message%> </span>
+                          <h4 class='inline-header'>Loop Time:</h4> 
+                          <span class='artist-name'> <%= loop.time%> </span>
                         </li>
                         <li class='list-group-item'>
-                          <h4 class='inline-header'>Released date:</h4> 
-                          <span class='album-releaseDate'>edit for loops</span>
+                          <h4 class='inline-header'>Loop message:</h4> 
+                          <span class='album-releaseDate'><%=loop.message%></span>
                         </li>
                       </ul>
                    </div>
@@ -65,5 +64,5 @@ render and append.<p>
 <%});%>
 <div class = "loops">
 </div>
-
+<!-- edit footer to toggle to icon link to future page after login -->
 <% include ./partials/footer.ejs %>
