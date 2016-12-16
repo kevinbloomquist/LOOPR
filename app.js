@@ -21,7 +21,15 @@ app.get('/api', function api_index (req, res){
     documentation_url: "https://github.com/kevinbloomquist/LOOPR",
     base_url: "HEROKU LINK HERE!!!!",
     endpoints: [
-      {method: "GET", path: "/api", description: "Describes available endpoints"}
+      {method: "GET", path: "/api", description: "Describes available endpoints"},
+
+      {method: "GET", path: "/signup", descrition: "takes user to signup page with user signup form"},
+      {method: "POST", path: "/signup", description:"signup form adds user to Loops.users on submit"},
+      {method: "GET",  path: "/login", description: "takes user to login page with login form"},
+      {method: "POST", path: "/login", description: "authenticates user on submit and redirects to /"},
+      {method: "GET", path: "/", description: "retrieves a user feed of triggered loops"},
+      {method: "POST", path: "/", description: "currentlyuses create form to submit loops to database(TEMP"},
+      
     ]
   });
 });
@@ -53,4 +61,6 @@ app.use(function(req,res,next){
 var routes = require('./config/routes');
 app.use(routes);
 
-app.listen(3000);
+// app.listen(3000);
+app.listen(process.env.PORT || 3000);
+
