@@ -6,6 +6,7 @@ function home(req, res) {
 db.Loop.find({}, function(err,loops){
 res.render('index.ejs',{loops:loops});
 
+
 });
 }
 

@@ -8,7 +8,7 @@ var User = mongoose.Schema({
 		password   :String,
 		//userLat	   :String,//change to proper location data
 		//userLong   :String,//change to proper location data
-		//loops:[loopSchema] 
+		// loops:[loopSchema] 
 	}
 });
 

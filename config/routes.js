@@ -19,6 +19,9 @@ function authenticatedUser(req,res,next) {
 router.route('/')
 .get(staticsController.home);
 
+
+//router.route('/loops')
+//.get(
 router.route('/signup')
 .get(usersController.getSignup)
 .post(usersController.postSignup);
