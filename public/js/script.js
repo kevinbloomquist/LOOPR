@@ -7,6 +7,7 @@ $(document).ready(function(){
 	var fuseTime = $('#fuseTime').val();//"format like above",
 	var fuseLat = $('#fuseLat').val();
 	var fuseLong = $('#fuseLong').val();
+
 	
 	var loopIn = {
 "date": date,
@@ -17,6 +18,7 @@ $(document).ready(function(){
 "fuseLat": fuseLat,
 "fuseLong": fuseLong
 };
+});
 });
 // 	$.post('/',loopIn,function(){
 // 		console.log("hit .post loopIn");
@@ -30,11 +32,10 @@ $(document).ready(function() {
   $.get('http://localhost:3000/',function(res,req){
 
 var loopsList = res;
-console.log(loopsList);
 
 // for (i=0;i<sampleAlbums.length;i++){
-  res.forEach(function(loop) {
-    renderLoop(loop);
+  // res.forEach(function(loop) {
+    // renderLoop(loop);
 
 
   });
@@ -56,7 +57,7 @@ $('.loops form').submit(function(event){
 
 
 
-});
+
 function renderLoop(loop) {
 
   console.log('rendering loop:', loop);
@@ -69,6 +70,7 @@ function renderLoop(loop) {
   "            <div class='panel panel-default'>" +
   "              <div class='panel-body'>" +
   "              <!-- begin loop internal row -->" +
+                  "<div class = 'delete-'"+ loop.id+ "'>X</div>" +
   "                <div class='row'>" +
   "                  <div class='col-md-3 col-xs-12 thumbnail loop-art'>" +
   "                     <img src='" + "http://placehold.it/400x400'" +  " alt='album image'>" +

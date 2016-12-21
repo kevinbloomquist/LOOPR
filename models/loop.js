@@ -11,7 +11,8 @@ message: String,
 fuseDate: Date,
 fuseTime:String,//"format like above",
 fuseLat: Number,
-fuseLong: Number
+fuseLong: Number,
+image:String
 });
 
 module.exports = mongoose.model('Loop',Loop);

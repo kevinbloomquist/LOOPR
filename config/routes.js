@@ -35,9 +35,9 @@ router.route("/logout")
 
 router.route("/future")
 .get(usersController.getFutureLoops)
-.post(usersController.postFutureLoop) ;//*controller function not yet built
+.post(usersController.postFutureLoop) //*controller function not yet built
+.delete(usersController.deleteFutureLoop); //*controller function not yet built
 // .put(usersController.editFutureLoop) * will require a find/ change/ return on submit of some kind
-// .delete(usersController.deleteFutureLoop); *controller function not yet built
 
 router.route("/present")
 .get(usersController.getTriggeredLoops);

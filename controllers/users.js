@@ -72,16 +72,26 @@ function postFutureLoop(request,response){
 	db.Loop.create(request.body,function(err,loop){
 		console.log("loop created");
 		console.log(request.user);
+	});
+	console.log("postFutureLoop hit!!!");
+}
+//DELETE /future
+function deleteFutureLoop(request,response){
+	db.Loop.findOne(request.body.id,function(err,loop){
+		console.log('deleteFutureLoop hit');
+		console.log(request.body.id);
+	});
+}
+
 		
 
-	});
+
 // still need to build:
 // PUT /future/
 // DELETE /future/
 // DELETE /
 	// response.render('createLoop.ejs');
-	console.log("postFutureLoop hit!!!");
-}
+
 
 
 
@@ -94,6 +104,7 @@ module.exports = {
 	secret: secret,
 	getFutureLoops: getFutureLoops, //note plurality
 	postFutureLoop: postFutureLoop,
+	deleteFutureLoop: deleteFutureLoop,
 	getTriggeredLoops: getTriggeredLoops
 
 };
