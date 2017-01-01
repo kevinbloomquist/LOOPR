@@ -1,3 +1,4 @@
+// require and export user and loop.js figure out how to get server/router and controller to recognize index.js
 console.log("index.js is included");
 
 var mongoose = require("mongoose");

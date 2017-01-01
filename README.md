@@ -45,11 +45,6 @@ Working task list:
 
 
 
-
-
-
-
-
 ### Useful Resources
 
 * **[Heroku](http://www.heroku.com)** _(for hosting your back-end)_
