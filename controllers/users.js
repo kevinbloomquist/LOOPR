@@ -70,8 +70,16 @@ function getFutureLoops (request,response){
 // POST /future
 function postFutureLoop(request,response){
 	db.Loop.create(request.body,function(err,loop){
-		console.log("loop created");
+		if (err) {
+			console.log(err);
+		}
+		else {
+			console.log(loop.message + "Created!");
+		}
 		console.log(request.user);
+		console.log(request.body);
+		console.log("loop:" + loop );
+
 	});
 	console.log("postFutureLoop hit!!!");
 }
