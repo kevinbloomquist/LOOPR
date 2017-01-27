@@ -54,7 +54,17 @@ $('.loops form').submit(function(event){
 
 });
 
+function deleteFunction(id){
+  console.log(id);
+$.ajax({
+    url: '/future/'+ id,
+    type: 'DELETE',
+    success: function(result) {
+        console.log(result);
+    }
+});
 
+}
 
 
 
@@ -108,10 +118,6 @@ $('.loops').append(loopHtml);
 }
 
 
-function deleteFunction(id){
-  console.log("deleteFunction hit");
-$.delete('http://localhost:3000/future'+ id,function(res,req){
-  });
-}
+
 
 
