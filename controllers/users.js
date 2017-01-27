@@ -77,6 +77,7 @@ function postFutureLoop(request,response){
 }
 //DELETE /future
 function deleteFutureLoop(request,response){
+	console.log("inside deleteFutureLoop");
 	db.Loop.findOne(request.body.id,function(err,loop){
 		console.log('deleteFutureLoop hit');
 		console.log(request.body.id);

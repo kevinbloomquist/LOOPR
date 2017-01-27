@@ -10,6 +10,7 @@ render and append.<p>
 
 <!-- eventually sort loops to display triggered only -->
 
+
 <%loops.forEach(function(loop) {%>
 
  
@@ -22,11 +23,12 @@ render and append.<p>
             <div class='col-md-10 col-md-offset-1'>
               <div class='panel panel-default'>
                 <div class='panel-body'>
-                <div id = "delete-<%=loop.id%>">X delete</div>
+                <div id = "delete-<%=loop.id%>"><button onclick ="deleteFunction(<%=loop.id%>)">X</button>
+                </div>
                 <!-- begin loop internal row -->
                   <div class='row'>
                     <div class='col-md-3 col-xs-12 thumbnail loop-art'> 
-                       <img src='" + "http://placehold.it/400x400'  alt='loop image'>
+                       <img src=""  alt='loop image'>
                     </div>
                     <div class='col-md-9 col-xs-12'>
                       <ul class='list-group'>
@@ -66,9 +68,5 @@ render and append.<p>
 <div class = "loops">
 </div>
 <!-- edit footer to toggle to icon link to future page after login -->
-<script>
-$('#delete-' + loop.id),onClick(function(event){
-  console.log(loop.id);
-});
-  </script>
+
 <% include ./partials/footer.ejs %>

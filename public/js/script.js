@@ -87,7 +87,7 @@ function renderLoop(loop) {
   "                      </li>" +
   "                      <li class='list-group-item'>" +
   "                        <h4 class='inline-header'>Released date:</h4>" +
-  "                        <span class='album-releaseDate'>" + album.releaseDate + "</span>" +
+  "                        <span class='album-releaseDate'>" + + "</span>" +
   "                      </li>" +
   "                    </ul>" +
   "                  </div>" +
@@ -108,5 +108,10 @@ $('.loops').append(loopHtml);
 }
 
 
+function deleteFunction(id){
+  console.log("deleteFunction hit");
+$.delete('http://localhost:3000/future'+ id,function(res,req){
+  });
+}
 
 
